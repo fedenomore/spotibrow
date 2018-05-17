@@ -1,0 +1,23 @@
+page-login {
+ ion-content{
+    background: #fff; /* Old browsers */
+    background: -moz-linear-gradient(top, #fff 0%, #444444 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, #fff 0%,#444444 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, #fff 0%,#444444 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fff', endColorstr='#444444',GradientType=0 ); /* IE6-9 */
+ 
+ .item-md.login-item, .item-ios.login-item {
+     background-color: transparent;
+ }
+
+.item-input.label-md,
+.item-select .label-md,
+.item-datetime .label-md,
+.item-input .label-ios,
+.item-select .label-ios,
+.item-datetime .label-ios
+ {
+     color:white;
+ }
+}
+}

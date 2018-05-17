@@ -1,0 +1,26 @@
+<ion-header>
+</ion-header>
+
+<ion-content padding>
+  <ion-row>
+      <ion-col text-center col-12 coffset-3>
+        <img src="assets/imgs/logo.png" alt="">
+      </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col>
+      <ion-list>
+        <ion-item class="login-item">
+          <ion-label floating>Usuario</ion-label>
+          <ion-input type="text" [(ngModel)]="datosLogin.username"></ion-input>
+        </ion-item>
+        <ion-item class="login-item">
+          <ion-label floating>Contraseña</ion-label>
+          <ion-input type="password" [(ngModel)]="datosLogin.password"></ion-input>
+        </ion-item>
+        <button ion-item color="green" mode="md" primary-button margin-top text-center (click)="login();" > Iniciar Sesión</button>
+      </ion-list>
+    </ion-col>
+  </ion-row>
+
+</ion-content>
