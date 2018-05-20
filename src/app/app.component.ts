@@ -21,8 +21,18 @@ export class MyApp {
     // used for an example of ngFor and navigation
     this.pages = [
       { title: 'Home', component: 'home' },
-      
+          
     ];
+
+    let paginaInicial;
+    let logged = this.localStorage.getItem('logged');
+    if (logged) {
+      paginaInicial = 'home';
+    }
+    else {
+      paginaInicial = 'login';
+    }
+    this.rootPage = paginaInicial;
 
   }
 

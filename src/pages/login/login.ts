@@ -54,13 +54,14 @@ export class LoginPage {
   
   private successLogin(success): void{
     this.ocultarLoading();
-    this.navCtrl.setRoot('home');
     this.localStorage.setItem('logged','true');
+    this.navCtrl.setRoot('home');
     console.log('Exito');
   }
   private errorLogin(error):void{
     this.ocultarLoading();
     console.log('Error Login');
+    this.mostrarToast(2000,'Usuario y/o contraseña incorrectos','bottom');
   }
 
   private mostrarLoading(message: string):void{
@@ -83,6 +84,10 @@ private mostrarToast(duracion:number,mensaje:string, posicion:string): void{
   position: posicion
   });
  modalError.present();
+}
+
+public sendUsername():string{
+ return this.datosLogin.username; 
 }
 }
  
