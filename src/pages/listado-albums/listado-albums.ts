@@ -8,7 +8,9 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
  * Ionic pages and navigation.
  */
 
-@IonicPage()
+@IonicPage({
+  name: 'listado-albums'
+})
 @Component({
   selector: 'page-listado-albums',
   templateUrl: 'listado-albums.html',
@@ -16,6 +18,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 export class ListadoAlbumsPage {
   public arrayAlbums: any[];
   public listadoAlbums;
+  public nombreAlbum: string;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
     this.arrayAlbums = [];
@@ -23,13 +26,15 @@ export class ListadoAlbumsPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ListadoAlbumsPage');
-    this.listadoAlbums = this.navParams.get('peliculasLista');
+    this.listadoAlbums = this.navParams.get('albumsLista');
+    this.nombreAlbum = this.navParams.get('datosBusqueda.texto');
 
     if (!this.listadoAlbums) {
       this.listadoAlbums = [];
     }
-
-    this.arrayAlbums = this.listadoAlbums.Search;
+    console.log('nombreAlbum',this.nombreAlbum)
+    this.arrayAlbums = this.listadoAlbums.album;
+    console.log('this.listadoAlbums', this.listadoAlbums);
   }
 
 }

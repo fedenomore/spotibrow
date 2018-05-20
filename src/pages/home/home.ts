@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ToastController, Toast } from 'ionic-angular';
+import { IonicPage, NavController, NavParams,LoadingController, ToastController, Toast, Loading } from 'ionic-angular';
 import { LoginPage } from "../login/login"
-
+import { AlbumsProvider } from '../../providers/albums/albums';
 /**
  * Generated class for the HomePage page.
  *
@@ -19,10 +19,16 @@ name: 'home'
 })
 export class HomePage {
   private login: LoginPage;
-  private currentUser
-  constructor(public navCtrl: NavController, public navParams: NavParams, private toastCtrl: ToastController) {
-    
+  public datosBusqueda: any;
+  constructor(
+    public navCtrl: NavController,
+    public navParams: NavParams,
+    public albumsProvider: AlbumsProvider,
+    private toastCtrl: ToastController,
+    private loadingCtrl: LoadingController,
+  ) {
     this.mostrarToast(2000,"Bienvenido", "bottom");
+    this.datosBusqueda = {};
   }
 
   ionViewDidLoad() {
@@ -40,5 +46,37 @@ export class HomePage {
 
   public irListadoAlbums(): void {
     this.navCtrl.push('listado-albums');
+  }
+
+  public buscarAlbum(): void {
+    if (!this.datosBusqueda.texto) {
+      let toastError = this.toastCtrl.create({
+        message: 'Ingrese texto por favor',
+        duration: 1500,
+        position: 'bottom'
+      });
+      toastError.present();
+      return;
+    }
+    let loading = this.loadingCtrl.create({ content: 'Buscando album..' });
+    loading.present();
+    this.albumsProvider.
+    buscarAlbum(this.datosBusqueda.texto).then(
+      (success) => { this.successBuscarAlbum(success, loading) },
+      (error) => { this.errorBuscarAlbum(error, loading) });
+  }
+
+  private successBuscarAlbum(resultado, loading): void {
+    loading.dismiss();
+    let data = {
+      albumsLista: resultado.results.albummatches
+    };
+    this.navCtrl.push('listado-albums', data);
+    console.log('successBuscarAlbum', resultado);
+  }
+
+  private errorBuscarAlbum(error, loading): void {
+    loading.dismiss();
+    console.log('errorBuscarAlbums', error);
   }
 }
