@@ -12,13 +12,18 @@
 
 <ion-content padding>
     <ion-row>
+        <ion-col text-center col-12 coffset-3>
+          <img src="assets/imgs/logo.png" alt="">
+        </ion-col>
+    </ion-row>
+    <ion-row>
         <ion-col>
           <ion-item>
-            <ion-label stacked>Ingrese texto</ion-label>
+            <ion-label floating>Ingrese nombre album</ion-label>
             <ion-input color="primary" clearInput [(ngModel)]="datosBusqueda.texto"></ion-input>
           </ion-item>
     
         </ion-col>
       </ion-row>
-      <button ion-button block (click)="buscarAlbum()" uppercase>Buscar album</button>
+      <button ion-button block  primary-button (click)="buscarAlbum()" uppercase>Buscar album</button>
 </ion-content>

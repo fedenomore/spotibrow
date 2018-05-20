@@ -1,0 +1,24 @@
+
+<ion-header>
+
+    <ion-navbar color="green">
+        <button ion-button menuToggle>
+          <ion-icon name="menu"></ion-icon>
+        </button>
+      
+        <ion-title>Perfil</ion-title>
+      </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+    <ion-item>
+        <ion-label>Fecha de Nacimiento</ion-label>
+        <ion-datetime displayFormat="DD/MM/YYYY" pickerFormat="DD MMMM YYYY"
+        monthShortNames='ene, feb, mar, abr, may, jun, jul, ago, set, oct, nov, dic' 
+        monthNames='Enero, Febrero, Marzo, Abril, Mayo, Junio, Julio, Agosto, Setiembre, Octubre, Noviembre, Diciembre'
+        cancelText="CANCELAR" doneText="OK" [(ngModel)]="user.fecNacimiento"></ion-datetime>
+      </ion-item>
+      
+</ion-content>
