@@ -1,0 +1,35 @@
+<ion-header>
+
+  <ion-navbar>
+      <ion-toolbar>
+          <ion-title>{{detalleAlbum?.name}}</ion-title>
+          <ion-buttons left>
+            <button ion-button (click)="cerrarModal();">Cerrar</button>
+          </ion-buttons>
+        </ion-toolbar>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+    <ion-grid>
+        <ion-row>
+            <ion-col>
+              <h3 class="subtitle">Por: {{detalleAlbum?.artist}}</h3>
+            </ion-col>
+          </ion-row>
+        <ion-row>
+          <ion-col col-8 offset-2>
+            <img [src]='detalleAlbum?.image[3]["#text"]' [alt]="detalleAlbum?.name">
+          </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col col-12>
+             <button ion-button block primary-button (click)="abrirLink(detalleAlbum.url);"> 
+               <ion-icon name="open"></ion-icon><span class="ver-mas"> Ver más</span>
+             </button>
+            </ion-col>
+       </ion-row>
+      </ion-grid>
+</ion-content>

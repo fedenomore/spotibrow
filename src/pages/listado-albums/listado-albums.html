@@ -13,27 +13,24 @@
         <ion-row>
           <ion-col col-6 col-md-3 *ngFor="let album of arrayAlbums">
             <ion-card>
-              <!-- <img [src]="pelicula.Poster" [alt]="'Poster de película ' + pelicula.Title" [title]="'Poster de película ' + pelicula.Title"
-                (click)="goDetallePelicula(pelicula);"> -->
+               <img [src]='album.image[2]["#text"]' [alt]="'Cover album ' + album.name" [title]="'Cover album ' + album.name" (click)="irDetalleAlbum(album);" >
+                
               <ion-card-title>
                 {{album.name}}
               </ion-card-title>
+              
               <ion-card-content>
-                <!-- <ion-row>
-                  <ion-col col-6>
-                    <button ion-button clear icon-only color="imdb" (click)="abrirLinkImdb(pelicula);"> 
-                      <ion-icon name="videocam"></ion-icon>
+                <ion-row class="artista">
+                  {{album.artist}}
+                </ion-row>
+                <ion-col text-center>
+                    <button ion-button clear icon-only block primary-button color=""> 
+                        <ion-icon ios="ios-star" md="md-star"></ion-icon>
                     </button>
-                  </ion-col>
-                  <ion-col col-6>
-                      <button ion-button icon clear icon-only color="secondary" (click)="sharePelicula(pelicula);">
-                          <ion-icon name="share-alt"></ion-icon>
-                        </button>
-                  </ion-col>
-                </ion-row> -->
+              </ion-col>
               </ion-card-content>
             </ion-card>
-    
+            
             </ion-col>
         </ion-row>
       </ion-grid>

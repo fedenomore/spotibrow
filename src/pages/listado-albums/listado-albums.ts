@@ -1,12 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
-/**
- * Generated class for the ListadoAlbumsPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
 
 @IonicPage({
   name: 'listado-albums'
@@ -20,15 +13,14 @@ export class ListadoAlbumsPage {
   public listadoAlbums;
   public nombreAlbum: string;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,private modalCtrl: ModalController) {
     this.arrayAlbums = [];
-  }
+    }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ListadoAlbumsPage');
     this.listadoAlbums = this.navParams.get('albumsLista');
-    this.nombreAlbum = this.navParams.get('datosBusqueda.texto');
-
+    
     if (!this.listadoAlbums) {
       this.listadoAlbums = [];
     }
@@ -36,5 +28,14 @@ export class ListadoAlbumsPage {
     this.arrayAlbums = this.listadoAlbums.album;
     console.log('this.listadoAlbums', this.listadoAlbums);
   }
+  public irDetalleAlbum(album: any): void {
+    let modal = this.modalCtrl.create('detalle-album', { album });
+    modal.present();
+    modal.onDidDismiss((data) => {
+      console.log('Modal se cierra');
+    });
+  }
+
+
 
 }

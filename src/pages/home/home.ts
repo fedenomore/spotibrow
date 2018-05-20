@@ -44,10 +44,6 @@ export class HomePage {
    modalError.present();
   }
 
-  public irListadoAlbums(): void {
-    this.navCtrl.push('listado-albums');
-  }
-
   public buscarAlbum(): void {
     if (!this.datosBusqueda.texto) {
       let toastError = this.toastCtrl.create({
