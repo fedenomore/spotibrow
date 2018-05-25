@@ -13,7 +13,7 @@ import{ FavProvider } from '../../providers/fav/fav';
 export class ListadoAlbumsPage {
   arrayAlbums: any[];
   public listadoAlbums;
-  nombreAlbum: string;
+  busqueda: string;
   esFavorito = false;
 
   constructor(
@@ -30,15 +30,15 @@ export class ListadoAlbumsPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad ListadoAlbumsPage');
     this.listadoAlbums = this.navParams.get('albumsLista');
+    this.busqueda = this.navParams.get('busqueda');
    
     
     if (!this.listadoAlbums) {
       this.listadoAlbums = [];
     }
-    console.log('nombreAlbum',this.nombreAlbum)
-    this.arrayAlbums = this.listadoAlbums.album;
-    console.log('this.listadoAlbums', this.listadoAlbums);
+     this.arrayAlbums = this.listadoAlbums.album;
   }
+  
   public irDetalleAlbum(album: any): void {
     let modal = this.modalCtrl.create('detalle-album', { album });
     modal.present();

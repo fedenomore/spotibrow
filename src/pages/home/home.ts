@@ -32,7 +32,7 @@ export class HomePage {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad HomePage');
+    
   }
   private mostrarToast(duracion:number,mensaje:string, posicion:string): void{
     
@@ -64,11 +64,12 @@ export class HomePage {
 
   private successBuscarAlbum(resultado, loading): void {
     loading.dismiss();
-    let data = {
-      albumsLista: resultado.results.albummatches
-    };
-    this.navCtrl.push('listado-albums', data);
-    console.log('successBuscarAlbum', resultado);
+  
+    this.navCtrl.push('listado-albums',{
+      albumsLista: resultado.results.albummatches,
+      busqueda: this.datosBusqueda.texto
+     });
+    //console.log('successBuscarAlbum', resultado);
   }
 
   private errorBuscarAlbum(error, loading): void {
@@ -76,7 +77,4 @@ export class HomePage {
     console.log('errorBuscarAlbums', error);
   }
 
-  public getNombreAlbum(): string{
-    return this.datosBusqueda.texto;
-  }
 }
