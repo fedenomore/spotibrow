@@ -1,7 +1,7 @@
 <ion-header>
 
   <ion-navbar color="green">
-    <ion-title>Resultados para {{nombreAlbum}}</ion-title>
+    <ion-title>Resultados busqueda</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -23,11 +23,16 @@
                 <ion-row class="artista">
                   <span>{{album.artist}}</span>
                 </ion-row>
-                <ion-col>
-                    <button ion-button icon-only text-center color="" class="fav"> 
+                <ion-col *ngIf="!checkearFavorito(album)">
+                    <button ion-button icon-only text-center color="" class="fav" (click)='toggleFavorito(album);'> 
                         <ion-icon ios="ios-star" md="md-star"></ion-icon>
                     </button>
                 </ion-col>
+                <ion-col *ngIf="checkearFavorito(album)">
+                  <button ion-button icon-only text-center color="" class="del" (click)='toggleFavorito(album);'> 
+                      <ion-icon ios="ios-close" md="md-close"></ion-icon>
+                  </button>
+              </ion-col>
               </ion-card-content>
             </ion-card>
             

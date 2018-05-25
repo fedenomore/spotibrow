@@ -15,7 +15,11 @@ ion-content{
         color: goldenrod;
         border-radius: 50%;
         }
-
+    button.del{
+        background: #ececec;
+        color: red;
+        border-radius: 50%;
+    }
     ion-col.col {
             text-align: center;
     }

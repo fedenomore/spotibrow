@@ -10,6 +10,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { AuthProvider } from '../providers/auth/auth';
 import { AlbumsProvider } from '../providers/albums/albums';
 import { HttpClientModule } from '@angular/common/http';
+import { FavProvider } from '../providers/fav/fav';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { HttpClientModule } from '@angular/common/http';
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     AuthProvider,
-    AlbumsProvider
+    AlbumsProvider,
+    FavProvider
   ]
 })
 export class AppModule {}
