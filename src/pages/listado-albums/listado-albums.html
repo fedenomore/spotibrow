@@ -21,13 +21,13 @@
               
               <ion-card-content>
                 <ion-row class="artista">
-                  {{album.artist}}
+                  <span>{{album.artist}}</span>
                 </ion-row>
-                <ion-col text-center>
-                    <button ion-button clear icon-only block primary-button color=""> 
+                <ion-col>
+                    <button ion-button icon-only text-center color="" class="fav"> 
                         <ion-icon ios="ios-star" md="md-star"></ion-icon>
                     </button>
-              </ion-col>
+                </ion-col>
               </ion-card-content>
             </ion-card>
             

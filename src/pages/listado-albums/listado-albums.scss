@@ -1,3 +1,25 @@
 page-listado-albums {
+ion-content{
+    ion-card > img {
+        border-radius: 50%;
+    }
+    ion-card {
+        -webkit-box-shadow:none !important;
+        box-shadow:none !important;
+    }
+    ion-card-title, ion-row.artista > span{
+        text-align: center;
+    }
+    button.fav {
+        background: #ececec;
+        color: goldenrod;
+        border-radius: 50%;
+        }
+
+    ion-col.col {
+            text-align: center;
+    }
+}
+
 
 }
