@@ -1,3 +1,23 @@
 page-favoritos {
-
+    ion-content{
+        ion-card > img {
+            border-radius: 50%;
+        }
+        ion-card {
+            -webkit-box-shadow:none !important;
+            box-shadow:none !important;
+        }
+        ion-card-title, ion-row.artista > span{
+            text-align: center;
+        }
+       
+        button.del{
+            background: #ececec;
+            color: red;
+            border-radius: 50%;
+        }
+        ion-col.col {
+                text-align: center;
+        }
+    }
 }

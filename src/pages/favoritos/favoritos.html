@@ -1,18 +1,41 @@
-<!--
-  Generated template for the FavoritosPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
 
-  <ion-navbar>
-    <ion-title>FavoritosPage</ion-title>
+  <ion-navbar color="green">
+      <button ion-button menuToggle>
+          <ion-icon name="menu"></ion-icon>
+        </button>
+    <ion-title>Favoritos</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
+
+    <ion-grid no-padding>
+        <ion-row>
+          <ion-col col-6 col-md-3 *ngFor="let album of favoritos">
+            <ion-card>
+               <img [src]='album.image[2]["#text"]' [alt]="'Cover album ' + album.name" [title]="'Cover album ' + album.name" (click)="irDetalleAlbum(album);" >
+                
+              <ion-card-title>
+                {{album.name}}
+              </ion-card-title>
+              
+              <ion-card-content>
+                <ion-row class="artista">
+                  <span>{{album.artist}}</span>
+                </ion-row>
+                <ion-col>
+                  <button ion-button icon-only text-center color="" class="del" (click)='eliminarFavorito(album);'> 
+                      <ion-icon ios="ios-close" md="md-close"></ion-icon>
+                  </button>
+              </ion-col>
+              </ion-card-content>
+            </ion-card>
+            
+            </ion-col>
+        </ion-row>
+      </ion-grid>
 
 </ion-content>

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ModalController, AlertController, ToastController, Toast } from 'ionic-angular';
-import{ FavProvider } from '../../providers/fav/fav'
+import{ FavProvider } from '../../providers/fav/fav';
+
 
 @IonicPage({
   name: 'listado-albums'
@@ -12,7 +13,7 @@ import{ FavProvider } from '../../providers/fav/fav'
 export class ListadoAlbumsPage {
   arrayAlbums: any[];
   public listadoAlbums;
-  public nombreAlbum: string;
+  nombreAlbum: string;
   esFavorito = false;
 
   constructor(
@@ -21,14 +22,15 @@ export class ListadoAlbumsPage {
     private modalCtrl: ModalController,
     private favProv: FavProvider,
     private alertCtrl: AlertController,
-    private toastCtrl: ToastController
-  ) {
+    private toastCtrl: ToastController,
+    ) {
     this.arrayAlbums = [];
     }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ListadoAlbumsPage');
     this.listadoAlbums = this.navParams.get('albumsLista');
+   
     
     if (!this.listadoAlbums) {
       this.listadoAlbums = [];
@@ -44,6 +46,8 @@ export class ListadoAlbumsPage {
       console.log('Modal se cierra');
     });
   }
+
+//TODO mejorar checkeo de favoritos con promesas para no recargar tanto la busqueda
 checkearFavorito(album): boolean{
  //this.favProv.esFavorito(album.id).then(valor => this.esFavorito = valor);
   this.esFavorito = this.favProv.esFavorito(album.mbid);

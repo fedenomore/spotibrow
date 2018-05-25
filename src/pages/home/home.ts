@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams,LoadingController, ToastController, Toast, Loading } from 'ionic-angular';
+import { IonicPage, NavController, NavParams,LoadingController, ToastController, Toast, Loading, UrlSerializer } from 'ionic-angular';
 import { LoginPage } from "../login/login"
 import { AlbumsProvider } from '../../providers/albums/albums';
 /**
@@ -74,5 +74,9 @@ export class HomePage {
   private errorBuscarAlbum(error, loading): void {
     loading.dismiss();
     console.log('errorBuscarAlbums', error);
+  }
+
+  public getNombreAlbum(): string{
+    return this.datosBusqueda.texto;
   }
 }
