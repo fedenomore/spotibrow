@@ -32,8 +32,8 @@ export class FavProvider {
      let items = [];
     
     _.forIn(window.localStorage, (v,k) =>{
-      // console.log('v', v,'k',k);
-     if (v != 'true' &&
+     //console.log('v', v,'k',k);
+     if (v != 'true' && k != 'user' &&
       k != 'length' && k != 'clear'  &&
       k != 'getItem' && k != 'clear' && k != 'setItem' && k != 'key'  && k != 'removeItem'){
       items.push(JSON.parse(v));

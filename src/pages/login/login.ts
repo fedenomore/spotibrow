@@ -86,8 +86,6 @@ private mostrarToast(duracion:number,mensaje:string, posicion:string): void{
  modalError.present();
 }
 
-public sendUsername():string{
- return this.datosLogin.username; 
-}
+
 }
  
