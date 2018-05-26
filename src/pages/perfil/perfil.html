@@ -51,13 +51,12 @@
        </ion-row>
     <ion-row>
           <ion-col col-12>
-           <button ion-button block primary-button (click)="guardarCambios();"[disabled]="!modified"> 
+           <button ion-button block primary-button (click)="guardarCambios();" [disabled]="!modified"> 
              <ion-icon name="folder"></ion-icon>
              Guardar
            </button>
           </ion-col>
     </ion-row>
   </ion-grid>
-      {{modified}}
-      
+           
 </ion-content>

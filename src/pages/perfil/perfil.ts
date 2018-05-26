@@ -52,6 +52,7 @@ export class PerfilPage {
   private guardarCambios(){
     this.localStorage.setItem('user',JSON.stringify(this.user));
     this.mostrarToast(2000,'Guardado exitosamente','bottom');
+    this.modified = false;  
   }
 
   private modificado() {
@@ -60,7 +61,7 @@ export class PerfilPage {
 
   public sacarFoto(): void {
     let options: CameraOptions = {
-      quality: 100,
+      quality: 60,
       correctOrientation: true,
       destinationType: this.camera.DestinationType.DATA_URL,
       encodingType: this.camera.EncodingType.JPEG,
@@ -80,7 +81,7 @@ export class PerfilPage {
 
   public abrirGaleria(): void {
     let options: CameraOptions = {
-      quality: 100,
+      quality: 60,
       correctOrientation: true,
       destinationType: this.camera.DestinationType.DATA_URL,
       encodingType: this.camera.EncodingType.JPEG,
