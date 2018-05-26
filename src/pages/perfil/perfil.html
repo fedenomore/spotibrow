@@ -38,6 +38,18 @@
         cancelText="CANCELAR" doneText="OK" [(ngModel)]="user.fecNacimiento" (ionChange)="modificado()"></ion-datetime>
       </ion-item>
     <ion-row>
+          <ion-col col-12 text-center>
+            <img [src]="fotoPerfil" alt="" *ngIf="fotoPerfil">
+            <p *ngIf="!fotoPerfil">No hay ninguna foto de perfil cargada</p>
+          </ion-col>
+          <ion-col col-6 text-center>
+            <button ion-button (click)="sacarFoto();">Sacar foto</button>
+          </ion-col>
+          <ion-col col-6 text-center>
+              <button ion-button (click)="abrirGaleria();">Abrir galería</button>
+            </ion-col>
+       </ion-row>
+    <ion-row>
           <ion-col col-12>
            <button ion-button block primary-button (click)="guardarCambios();"[disabled]="!modified"> 
              <ion-icon name="folder"></ion-icon>

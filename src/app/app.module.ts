@@ -4,13 +4,14 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 
 import { MyApp } from './app.component';
 
-
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { AuthProvider } from '../providers/auth/auth';
 import { AlbumsProvider } from '../providers/albums/albums';
 import { HttpClientModule } from '@angular/common/http';
 import { FavProvider } from '../providers/fav/fav';
+
+import { Camera } from '@ionic-native/camera';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { FavProvider } from '../providers/fav/fav';
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     AuthProvider,
     AlbumsProvider,
-    FavProvider
+    FavProvider,
+    Camera
   ]
 })
 export class AppModule {}
