@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
 
 import { Camera, CameraOptions } from '@ionic-native/camera';
 
@@ -20,6 +20,7 @@ export class PerfilPage {
     public navCtrl: NavController,
     public navParams: NavParams,
     private camera: Camera,
+    private toastCtrl: ToastController
     
   ) {
     this.localStorage = (window as any).localStorage;
@@ -44,9 +45,13 @@ export class PerfilPage {
     
    
   }
+  ionViewDidEnter(){
+    this.modified = false;
+  }
 
   private guardarCambios(){
     this.localStorage.setItem('user',JSON.stringify(this.user));
+    this.mostrarToast(2000,'Guardado exitosamente','bottom');
   }
 
   private modificado() {
@@ -94,4 +99,12 @@ export class PerfilPage {
     });
 
 }
+  private mostrarToast(duracion:number,mensaje:string, posicion:string): void{
+    
+  let modalError = this.toastCtrl.create({
+  duration: duracion,
+  message: mensaje,
+  position: posicion,
+  });
+ modalError.present();}
 }

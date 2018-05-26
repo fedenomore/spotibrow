@@ -1,13 +1,6 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams,LoadingController, ToastController, Toast, Loading, UrlSerializer } from 'ionic-angular';
-import { LoginPage } from "../login/login"
+import { IonicPage, NavController, NavParams,LoadingController, ToastController } from 'ionic-angular';
 import { AlbumsProvider } from '../../providers/albums/albums';
-/**
- * Generated class for the HomePage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
 
 @IonicPage({
 name: 'home'
@@ -18,7 +11,6 @@ name: 'home'
   templateUrl: 'home.html',
 })
 export class HomePage {
-  private login: LoginPage;
   public datosBusqueda: any;
   constructor(
     public navCtrl: NavController,
